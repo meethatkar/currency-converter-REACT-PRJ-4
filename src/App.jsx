@@ -106,7 +106,7 @@ See https://react.dev/link/invalid-hook-call for tips about how to debug and fix
     <>
       <div className='bg-[url("https://images.unsplash.com/vector-1753165984715-d113f58b5494?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] h-screen w-screen object-cover opacity-50 '>
         <div id="bento-wrapper" className='p-[3.5px] absolute z-10 w-10/12  md:w-4/12 bg-gradient-to-r from-[#38BCC7] via-[#C23D87] to-[#C8DC23] shadow-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl overflow-hidden'>
-          <div id="container" className='p-2 md:p-5 h-full w-full bg-green-200/90 rounded-xl text-green-900/90 flex flex-col items-center md:gap-5 gap-3'>
+          <div id="container" className='p-2 md:p-5 h-full w-full bg-green-200 rounded-xl text-green-900/90 flex flex-col items-center md:gap-5 gap-3'>
             <h1 className='text-2xl md:text-4xl font-bold md:font-semibold tracking-tight mb-4 border-dashed border-b-3 border-b-green-600'> CURRENCY CONVERTER </h1>
             <InputBox label="From" amount={fromAmt} onAmountChange={(amount)=>{setfromAmt(amount);console.log("from amt: ",amount);
             }} onCurrencyChange={(currency)=>{setfromCurr(currency); setFromImgSrc(currency)}} flag_url={fromImgUrl} placeholderData={"Enter Amount"}/>
@@ -117,6 +117,9 @@ See https://react.dev/link/invalid-hook-call for tips about how to debug and fix
               <CgArrowLongUpE className='text-4xl translate-y-[20%] md:text-5xl'/>
             </div>
             <InputBox label="To" amount={toAmt} onAmountChange={(amount)=>{settoAmt(amount)}} onCurrencyChange={(currency)=>{settoCurr(currency); setToImgSrc(currency)}} flag_url={toImgUrl} currencyDisable={true} placeholderData={"Converter Value"}/>
+
+            {/* HERE-->  WHENEVER THE VALUE OF INPUT OR SELECT IS CHANGED THE ONCHANGE METHOD OF INPUTBOX WILL RUN PASSING CHANGED VALUE, THAT VALUE WILL BE STORED IN ARROW FUNCTION'S ARGS AND THEN WILL BE SET TO RESPECTIVE STATES (SPECIFIC FOR INPUT AMOUNT WILL BE THEN SET AS VALUE OF INPUT FIELD IN INPUTBOX COMPENENT*/}
+
             {/* <button className='px-3 py-1 bg-[#0350FC] text-white font-bold text-2xl rounded-xl mt-3' onClick={convert}> CONVERT </button> */}
           </div>
         </div>
